@@ -1,0 +1,66 @@
+# IF you get error like :- 
+    OSError: CUDA_HOME environment variable is not set. Please set it to your CUDA install root.
+    torch.__version__  = 2.4.1+cu124
+
+then :- 
+install cuda toolkit from nvida toolkit website :- https://developer.nvidia.com/cuda-downloads
+also install cudnn library :- "https://developer.nvidia.com/cudnn-downloads?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exe_local"
+and add following two folders in environment variables
+
+    C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vXX.X\bin
+    C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vXX.X\libnvvp
+
+
+### Install wsl in powershell 
+wsl --install
+
+(Rest all dependencies)
+sudo apt update
+sudo apt upgrade
+sudo apt install python3 python3-pip
+sudo apt install python3-venv
+sudo apt install ccache -- For faster compilation
+
+
+### Environment in wsl
+python3 -m venv myenv
+
+source myenv/bin/activate - activate environment
+
+
+## Navigate in c drive 
+cd /mnt/c/Users -- mount C drive  
+
+
+ --- Libraries install
+
+# Install all dependencies
+ - unsolth = pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
+    pip install unsloth
+# Also get the latest nightly Unsloth!
+    pip uninstall unsloth -y && pip install --upgrade --no-cache-dir "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
+
+pytorch = pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+other dependencies = pip install --no-deps xformers trl peft accelerate bitsandbytes triton
+
+
+
+
+### Move files from windows files to WSL directory
+
+Note :- You can find directories where wsl store files By clicking on LINUX below THIS PC and
+
+opening in UBUNTU folder
+There you will have : home/sanyam/  directory 
+
+so to move files from windows to UBUNUTU WSL use command
+
+
+    - cp -r /mnt/c/Users/Sam/Desktop/Llama/Run_model /home/sanyam
+
+ /mnt/c/Users/Sam/Desktop/Llama/Run_model - (This path refers to windows)
+ /home/sanyam - (This path to WSL's folder system)
+
+
+
+
